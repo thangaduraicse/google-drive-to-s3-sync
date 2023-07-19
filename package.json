@@ -1,0 +1,54 @@
+{
+  "name": "google-drive-to-s3-sync",
+  "version": "1.0.0",
+  "description": "Google Drive to Amazon S3 Sync",
+  "main": "lib/index.js",
+  "files": [
+    "lib"
+  ],
+  "engines": {
+    "node": ">=18.17.0",
+    "npm": ">=9.6.7"
+  },
+  "author": {
+    "name": "Thangadurai Nainamalai",
+    "email": "duraithanga3@gmail.com"
+  },
+  "license": "MIT",
+  "scripts": {
+    "build": "babel src --out-dir lib",
+    "prepublishOnly": "npm run build && git tag -a v$npm_package_version -m \"Release version $npm_package_version\"",
+    "publish": "npm publish",
+    "format": "prettier --write \"**/*.js\"",
+    "lint": "eslint --ext .js \"**/*.js\" --fix --no-error-on-unmatched-pattern",
+    "prepare": "husky install",
+    "upgrade:package": "ncu -u"
+  },
+  "dependencies": {
+    "@aws-sdk/client-s3": "3.370.0",
+    "googleapis": "122.0.0"
+  },
+  "devDependencies": {
+    "@babel/cli": "7.22.9",
+    "@babel/core": "7.22.9",
+    "@babel/preset-env": "7.22.9",
+    "eslint": "8.45.0",
+    "eslint-config-prettier": "8.8.0",
+    "eslint-plugin-import": "2.27.5",
+    "eslint-plugin-prettier": "5.0.0",
+    "eslint-plugin-promise": "6.1.1",
+    "eslint-plugin-security": "1.7.1",
+    "eslint-plugin-sonarjs": "0.19.0",
+    "eslint-plugin-unicorn": "48.0.0",
+    "husky": "8.0.3",
+    "lint-staged": "13.2.3",
+    "npm-check-updates": "16.10.16",
+    "prettier": "3.0.0"
+  },
+  "lint-staged": {
+    "**/*.js": [
+      "eslint --fix --max-warnings=0 --no-ignore",
+      "prettier --write"
+    ]
+  }
+}
