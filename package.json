@@ -17,15 +17,12 @@
   "license": "MIT",
   "scripts": {
     "build": "babel src --out-dir lib",
-    "prepublishOnly": "npm run build && git tag -a v$npm_package_version -m \"Release version $npm_package_version\"",
-    "publish": "npm publish",
     "format": "prettier --write \"**/*.js\"",
     "lint": "eslint --ext .js \"**/*.js\" --fix --no-error-on-unmatched-pattern",
-    "prepare": "husky install",
     "upgrade:package": "ncu -u"
   },
   "dependencies": {
-    "@aws-sdk/client-s3": "3.370.0",
+    "@aws-sdk/client-s3": "3.374.0",
     "googleapis": "122.0.0"
   },
   "devDependencies": {
